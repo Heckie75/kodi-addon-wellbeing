@@ -1,0 +1,21 @@
+rest periods
+  from Monday    24:00
+  to Tuesday     00:00
+  ----
+  from Tuesday   24:00
+  to Wednesday   00:00
+  ----
+  from Wednesday 24:00
+  to Thursday    00:00
+  ----
+  from Thursday  24:00
+  to Friday      00:00
+  ----
+  from Friday    24:00
+  to Saturday    00:00
+  ----
+  from Saturday  24:00
+  to Sunday      00:00
+  ----
+  from Sunday    24:00
+  to Monday      00:00
