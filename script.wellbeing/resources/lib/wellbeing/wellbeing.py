@@ -7,6 +7,8 @@ import xbmcaddon
 import xbmcgui
 import xbmcvfs
 
+from resources.lib.wellbeing.player import Player
+
 CHECK_INTERVAL = 10
 
 OFF = 0
@@ -51,7 +53,7 @@ class Wellbeing(xbmc.Monitor):
     def __init__(self) -> None:
 
         self._addon = xbmcaddon.Addon()
-        self._player = xbmc.Player()
+        self._player = Player()
 
         self._icon = os.path.join(xbmcvfs.translatePath(self._addon.getAddonInfo('path')),
                                   "resources",
@@ -205,7 +207,8 @@ class Wellbeing(xbmc.Monitor):
 
             _interval = CHECK_INTERVAL - t_now.tm_sec % CHECK_INTERVAL
 
-            if self._getPlayer().isPlaying():
+            _player = self._getPlayer()
+            if _player.isPlaying() and not _player.isPaused():
                 self._handleRestPeriod(t_now)
                 self._handleLimit(t_now, _interval)
 
@@ -214,7 +217,7 @@ class Wellbeing(xbmc.Monitor):
 
         self.saveUsageToSettings()
 
-    def _getPlayer(self) -> xbmc.Player:
+    def _getPlayer(self) -> Player:
 
         return self._player
 
