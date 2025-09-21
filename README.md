@@ -12,6 +12,10 @@ Kodi addon in order to limit playback time per day, e.g. for parental control
 <img src="script.wellbeing/resources/assets/screenshot_05.png?raw=true">
 
 ## Changelog
+Version 1.3.0 (2025-09-21)
+- Added RPC call to reset time budget (action=reset)
+- Added RPC call to add time to time budget (action=add, minutes=n)
+
 Version 1.2.0 (2022-11-30)
 - Added new feature: auto-stop in rest period
 - Added help texts
