@@ -8,9 +8,12 @@
   <extension point="xbmc.addon.metadata">
     <summary lang="en_GB">Wellbeing</summary>
     <summary lang="de_DE">Wellbeing</summary>
+    <summary lang="sv_SE">Välbefinnande</summary>
     <description lang="en_GB">Addon in order to limit playback time per day, e.g. for parental control. After playback time has been reached playback will be stopped automatically.
     </description>
     <description lang="de_DE">Addon um Wiedergabezeit pro Tag zu begrenzen. Nachdem die Wiederabezeit erreicht ist, beendet das Addon die Wiedergabe automatisch.
+    </description>
+    <description lang="sv_SE">Tillägg för att begränsa uppspelningstiden per dag, t.ex. för föräldrakontroll. När uppspelningstiden har nåtts stoppas uppspelningen automatiskt.
     </description>
     <language>en</language>
     <language>de</language>
