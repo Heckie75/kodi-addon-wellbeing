@@ -265,6 +265,22 @@ msgctxt "#32071"
 msgid "Sunday night"
 msgstr "Noc z nedele na pondelok"
 
+msgctxt "#32072"
+msgid "Today's time budget"
+msgstr "Dnešný časový rozpočet"
+
+msgctxt "#32073"
+msgid "Display status"
+msgstr "Zobraziť stav"
+
+msgctxt "#32074"
+msgid "Reset today's time budget"
+msgstr "Obnoviť dnešný časový rozpočet"
+
+msgctxt "#32075"
+msgid "Set today's time budget"
+msgstr "Nastaviť dnešný časový rozpočet"
+
 msgctxt "#32080"
 msgid "Playback has been interrupted in rest period"
 msgstr "Prehrávanie bolo prerušené v čase odpočinku"

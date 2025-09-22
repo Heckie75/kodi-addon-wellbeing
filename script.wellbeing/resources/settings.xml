@@ -385,7 +385,7 @@
         <setting id="limit" type="time" label="32000" help="">
           <level>3</level>
           <default>24:00</default>
-          <control type="edit" format="time">
+          <control type="edit" format="string">
             <heading>32000</heading>
           </control>
           <enable>false</enable>

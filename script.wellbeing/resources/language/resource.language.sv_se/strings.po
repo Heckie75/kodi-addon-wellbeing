@@ -266,6 +266,22 @@ msgctxt "#32071"
 msgid "Sunday night"
 msgstr "Söndag kväll"
 
+msgctxt "#32072"
+msgid "Today's time budget"
+msgstr "Dagens tidsbudget"
+
+msgctxt "#32073"
+msgid "Display status"
+msgstr "Visa status"
+
+msgctxt "#32074"
+msgid "Reset today's time budget"
+msgstr "Återställ dagens tidsbudget"
+
+msgctxt "#32075"
+msgid "Set today's time budget"
+msgstr "Ange dagens tidsbudget"
+
 msgctxt "#32080"
 msgid "Playback has been interrupted in rest period"
 msgstr "Uppspelningen har avbrutits under viloperioden"
