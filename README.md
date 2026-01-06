@@ -12,6 +12,9 @@ Kodi addon in order to limit playback time per day, e.g. for parental control
 <img src="script.wellbeing/resources/assets/screenshot_05.png?raw=true">
 
 ## Changelog
+Version 1.3.2 (2026-01-06)
+- Bugfix issue #8: Video Playback Limit Always 24:00
+
 Version 1.3.1 (2025-09-22)
 - Added translations for Swedish and Slovak language
 
