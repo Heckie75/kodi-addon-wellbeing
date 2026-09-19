@@ -11,6 +11,10 @@ from resources.lib.wellbeing.player import Player
 
 CHECK_INTERVAL = 10
 
+SAVE_INTERVAL = 60
+
+SELF_WRITE_GRACE = 2.0
+
 OFF = 0
 AUDIO_VIDEO = 1
 VIDEO = 2
@@ -68,9 +72,16 @@ class Wellbeing(xbmc.Monitor):
         self._sum: int = self._addon.getSettingInt("sum") if self._addon.getSetting(
             "date") == datetime.datetime.strftime(datetime.datetime.now(), "%Y-%m-%d") else 0
 
+        self._selfWriteUntil: float = .0
+        self._savedSum: int = self._sum
+        self._lastSaved: float = time.time()
+
         self.onSettingsChanged()
 
     def onSettingsChanged(self) -> None:
+
+        if time.time() < self._selfWriteUntil:
+            return
 
         ts = time.time()
         if self._changed + 1 > ts:
@@ -173,6 +184,7 @@ class Wellbeing(xbmc.Monitor):
         left = self._get_time_left(t_now)
         if not self._ignoreLimit and left <= 0:
             reached = True
+            self.saveUsageToSettings()
             self._notify(32034)
             if self._stopAndAskForReactivation():
                 self._ignoreLimit = True
@@ -250,6 +262,7 @@ class Wellbeing(xbmc.Monitor):
                 self._sum = 0
                 self._ignoreLimit = False
                 self._ignoreRestPeriod = -1
+                self.saveUsageToSettings()
 
             _interval = CHECK_INTERVAL - t_now.tm_sec % CHECK_INTERVAL
 
@@ -257,13 +270,30 @@ class Wellbeing(xbmc.Monitor):
                 and not self._handleLimit(t_now, _interval) \
                 and not self._handleRestPeriod(t_now)
 
+            self._saveUsageIfDue()
+
             if self.waitForAbort(_interval):
                 break
 
         self.saveUsageToSettings()
 
+    def _saveUsageIfDue(self) -> None:
+
+        if self._sum == self._savedSum:
+            return
+
+        if time.time() - self._lastSaved < SAVE_INTERVAL:
+            return
+
+        self.saveUsageToSettings()
+
     def saveUsageToSettings(self) -> None:
+
+        self._selfWriteUntil = time.time() + SELF_WRITE_GRACE
 
         self._addon.setSetting("date", datetime.datetime.strftime(
             datetime.datetime.now(), "%Y-%m-%d"))
         self._addon.setSettingInt("sum", self._sum)
+
+        self._savedSum = self._sum
+        self._lastSaved = time.time()
